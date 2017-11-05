@@ -1,20 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpModule }    from '@angular/http';
-import { Movies } from './app.movies';
+
 import { AppComponent } from './app.component';
-import { ClickFindComponent } from './click-find.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ClickFindComponent
+    AppComponent
   ],
   imports: [
-    BrowserModule,
-    HttpModule
+    BrowserModule
   ],
-  providers: [Movies],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

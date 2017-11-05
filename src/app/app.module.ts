@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 import { Movies } from './app.movies';
 import { HttpModule }    from '@angular/http';
 import { AppComponent } from './app.component';
+import { ClickFindComponent } from './click-find.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ClickFindComponent
   ],
   imports: [
     BrowserModule,

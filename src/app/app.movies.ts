@@ -36,4 +36,26 @@ result = 'from movies';
     });
     return promise;
   }
+
+  getNowPlaying(){
+   return  new Promise<MovieResponse>((resolve, reject) => {
+     this.http.get("/api/movies")
+     .toPromise()
+     .then( response => {
+       resolve(response.json().data)
+     })
+     .catch(err => console.log(err))
+   });
+}
+
+getByQuery(findBy, query){
+  return  new Promise<MovieResponse>((resolve, reject) => {
+    this.http.get("/api/movies/"+findBy+"/"+query)
+    .toPromise()
+    .then( response => {
+      resolve(response.json().data)
+    })
+    .catch(err => console.log(err))
+  });
+}
 }

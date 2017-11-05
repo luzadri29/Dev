@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.use(express.static(__dirname + '/dist'));
-//get movies
+
 router.get('/movies', function(req, res){
   var options = {
   "method": "GET",
@@ -34,8 +34,9 @@ var reqMovies = http.request(options, function (resMovies) {
 
   resMovies.on("end", function () {
     var body = Buffer.concat(chunks);
-    console.log(body.toString());
-    res.json(body.toString());
+    //console.log(body.toString());
+    var data = JSON.parse(body.toString());
+    res.json({data:data});
   });
 });
 reqMovies.write("{}");
@@ -69,8 +70,9 @@ var movieDBReq = http.request(options, function (movieDBRes) {
 
   movieDBRes.on("end", function () {
     var body = Buffer.concat(chunks);
-    console.log(body.toString());
-    res.json(body.toString());
+    //console.log(body.toString());
+    var data = JSON.parse(body.toString());
+    res.json({data:data});
   });
 });
   movieDBReq.write("{}");

@@ -16,4 +16,13 @@ constructor(private movie: Movies ) {}
 changeTitle = this.movie.changeTitleP()
     .then((val) => this.title = val);
 
+
+getNowPlaying = this.movie.getNowPlaying()
+      .then((val) => {
+      let data = val;
+      console.log(data.page);
+      console.log(data.results);
+      this.movie.movieList = data.results;
+    })
+
 }

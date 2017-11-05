@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Movies } from './app.movies';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  title : string;
+//  changeTitleP : string;
+
+constructor(private movie: Movies ) {}
+
+
+changeTitle = this.movie.changeTitleP()
+    .then((val) => this.title = val);
+
 }
